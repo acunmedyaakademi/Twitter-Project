@@ -1,6 +1,6 @@
-const createSubBtn = document.querySelector('#createSub');
 const subFormWrapper = document.querySelector('#subFormWrapper');
+const createSub = document.querySelector('#createSub');
 
-createSubBtn.addEventListener('click', () => {
+createSub.addEventListener('click', () => {
   subFormWrapper.classList.toggle('hidden');
 });
