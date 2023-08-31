@@ -3,21 +3,20 @@ addEventListener('hashchange', handleRoute);
 const routes = {
   '/': {
     title: 'AnaSayfa',
-    templates: 'anaSayfa'
+    templates: 'anaSayfa',
   },
   '/signup': {
     title: 'Üye Ol',
-    templates: 'signup'
+    templates: 'signup',
   },
   '/login': {
     title: 'Giriş Yap',
-    templates: 'login'
-  }
-  ,
+    templates: 'login',
+  },
   '/404': {
     title: 'Sayfa Bulunamadı',
-    templates: '404'
-  }
+    templates: '404',
+  },
 };
 
 const routeTitle = 'wiwitter | ';
@@ -27,8 +26,7 @@ async function handleRoute() {
   let url = location.hash.substring(1);
 
   if (url.length < 1) {
-    url = '/';
-    rootEl.innerHTML = await fetch(`/index.html`).then(r => r.text());
+    url = '/login';
   }
 
   const route = routes[url] || routes['/404'];
