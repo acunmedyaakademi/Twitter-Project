@@ -2,19 +2,25 @@ addEventListener('hashchange', handleRoute);
 
 const routes = {
   '/': {
-    title: 'Anasayfa',
-    pages: 'anasayfa',
+    title: 'AnaSayfa',
+    templates: 'anaSayfa'
   },
   '/signup': {
-    title: 'Üye ol',
-    pages: 'signup',
+    title: 'Üye Ol',
+    templates: 'signup'
   },
+  '/login': {
+    title: 'Giriş Yap',
+    templates: 'login'
+  }
+  ,
   '/404': {
     title: 'Sayfa Bulunamadı',
-    pages: '404',
-  },
+    templates: '404'
+  }
 };
 
+const routeTitle = 'wiwitter | ';
 const rootEl = document.querySelector('.root');
 
 async function handleRoute() {
@@ -22,13 +28,14 @@ async function handleRoute() {
 
   if (url.length < 1) {
     url = '/';
+    rootEl.innerHTML = await fetch(`/index.html`).then(r => r.text());
   }
 
   const route = routes[url] || routes['/404'];
 
-  document.title = route.title;
+  document.title = routeTitle + route.title;
 
-  rootEl.innerHTML = await fetch(`/pages/${route.pages}.html`).then(r => r.text());
+  rootEl.innerHTML = await fetch(`/templates/${route.templates}.html`).then(r => r.text());
 }
 
 handleRoute();
