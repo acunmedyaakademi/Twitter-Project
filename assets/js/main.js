@@ -7,7 +7,7 @@ const routes = {
   },
   '/signup': {
     title: 'Üye Ol',
-    templates: 'signup',
+    templates: 'signUp',
   },
   '/login': {
     title: 'Giriş Yap',
