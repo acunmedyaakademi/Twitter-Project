@@ -3,7 +3,7 @@ addEventListener('hashchange', handleRoute);
 const routes = {
   '/': {
     title: 'AnaSayfa',
-    templates: 'anaSayfa',
+    templates: 'anasayfa',
   },
   '/signup': {
     title: 'Üye Ol',
@@ -34,6 +34,24 @@ async function handleRoute() {
   document.title = routeTitle + route.title;
 
   rootEl.innerHTML = await fetch(`/templates/${route.templates}.html`).then(r => r.text());
+
+  // login sayfası butona tıklandığında
+  const openModalBtn = document.querySelector('#openModalBtn');
+  const submitModal = document.querySelector('#submitModal');
+  const submitHideBtn = document.querySelector('#submitHideBtn');
+  const twetterImg = document.querySelector('#twetter-img');
+
+  openModalBtn.addEventListener('click', () => {
+    submitModal.classList.remove('hidden');
+    twetterImg.classList.add('hidden');
+  });
+
+  submitHideBtn.addEventListener('click', () => {
+    submitModal.classList.add('hidden');
+    twetterImg.classList.remove('hidden');
+  });
 }
 
 handleRoute();
+
+// login page hesap açma butonu
