@@ -5,10 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <script src="assets/js/main.js" defer></script>
+    <script src="https://kit.fontawesome.com/79839514b1.js" crossorigin="anonymous"></script>
     <title>wiwitter</title>
   </head>
   <body>
-    <h1>Anasayfa şimdilik boş</h1>
+    <div class="h-screen bg-slate-900">
+      <div class="h-full flex">
+        <div
+          class="flex flex-col items-center justify-between border-r border-gray-500 w-full max-w-[100px] p-3"
+        >
+          <i class="fa-solid fa-house text-white text-2xl"></i>
+          <i class="fa-solid fa-magnifying-glass text-white text-2xl"></i>
+          <i class="fa-solid fa-bell text-white text-2xl"></i>
+          <i class="fa-solid fa-envelope text-white text-2xl"></i>
+          <i class="fa-solid fa-newspaper text-white text-2xl"></i>
+          <i class="fa-solid fa-user text-white text-2xl"></i>
+          <i class="fa-solid fa-ellipsis text-white text-2xl"></i>
+        </div>
+        <div class="flex-1 max-w-6xl">
+          <h2 class="mb-4 p-2 text-xl text-white">Anasayfa</h2>
+          <!-- Post atma kısmı -->
+          <div class="">
+            <div class="border-b-2 border-gray-500">
+              <div class="flex p-3">
+                <div class="w-fit">
+                  <img
+                    class="w-10 h-10"
+                    src="/assets/src/logo/twitter-color-svgrepo-com.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="ml-5 flex-1">
+                  <div class="border-b-2 pb-2 mb-2 w-full border-gray-500">
+                    <textarea
+                      class="w-full rounded-md p-2 text-xl bg-slate-700 text-white placeholder:text-white"
+                      placeholder="Neler oluyor?"
+                      name="post-area"
+                      id=""
+                      cols="10"
+                      rows="5"
+                    ></textarea>
+                  </div>
+                  <div class="flex gap-4">
+                    <i class="fa-solid fa-image text-white text-lg"></i>
+                    <i class="fa-solid fa-photo-film text-white text-lg"></i>
+                    <i class="fa-solid fa-face-smile text-white text-lg"></i>
+                    <i class="fa-solid fa-location-dot text-white text-lg"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden lg:block max-w-sm border-l border-gray-500 p-6">
+          <div class="flex items-center justify-center bg-slate-700 p-2 rounded-full">
+            <input
+              type="search"
+              placeholder="Ara"
+              class="bg-transparent placeholder:text-white text-white outline-none appearance-none"
+            />
+            <i class="fa-solid fa-magnifying-glass text-white"></i>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </body>
 </html>
