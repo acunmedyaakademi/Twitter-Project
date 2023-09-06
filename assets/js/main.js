@@ -136,6 +136,8 @@ async function signUpSubmitted(event) {
       const responseHtml = await response.text();
       rootEl.innerHTML = responseHtml;
       location.hash = '#/login'; */
+
+      window.location.hash = '/login';
     }
   } catch (error) {
     console.error('An unexpected error occurred:', error);
