@@ -1,3 +1,9 @@
+const supabaseUrl = 'https://btsgtdrtzsosuaqhjdos.supabase.co';
+const supabaseKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ0c2d0ZHJ0enNvc3VhcWhqZG9zIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY5MzQyMTI0NCwiZXhwIjoyMDA4OTk3MjQ0fQ.O65GiJrRqcDy_EqBLQuUzdNpGT0PsaG0o-U_BXJF0eo';
+
+const supaBase = supabase.createClient(supabaseUrl, supabaseKey);
+
 addEventListener('hashchange', handleRoute);
 
 const routes = {
@@ -5,13 +11,15 @@ const routes = {
     title: 'AnaSayfa',
     templates: 'anasayfa',
   },
-  '/signup': {
+  '/signUp': {
     title: 'Üye Ol',
     templates: 'signUp',
+    callback: bindForm,
   },
   '/login': {
     title: 'Giriş Yap',
     templates: 'login',
+    callback: openModal,
   },
   '/404': {
     title: 'Sayfa Bulunamadı',
@@ -28,13 +36,24 @@ async function handleRoute() {
   if (url.length < 1) {
     url = '/login';
   }
+  let route = routes[url] || routes['/404'];
+  console.log(route);
 
-  const route = routes[url] || routes['/404'];
+  const response = await fetch(`/templates/${route.templates}.html`);
+  const responseHtml = await response.text();
+
+  rootEl.innerHTML = responseHtml;
 
   document.title = routeTitle + route.title;
 
-  rootEl.innerHTML = await fetch(`/templates/${route.templates}.html`).then(r => r.text());
+  const routeCallback = route.callback || function () {};
 
+  routeCallback.apply();
+}
+
+handleRoute();
+
+function openModal() {
   // login sayfası butona tıklandığında
   const openModalBtn = document.querySelector('#openModalBtn');
   const submitModal = document.querySelector('#submitModal');
@@ -52,6 +71,12 @@ async function handleRoute() {
   });
 }
 
-handleRoute();
+function bindForm() {
+  const signUpForm = document.querySelector('#signUpForm');
 
-// login page hesap açma butonu
+  signUpForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    console.log(Object.fromEntries(new FormData(signUpForm)));
+  });
+}
