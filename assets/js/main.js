@@ -1,7 +1,7 @@
 addEventListener('hashchange', handleRoute);
 
 const routes = {
-  '/': {
+  '/AnaSayfa': {
     title: 'AnaSayfa',
     templates: 'anaSayfa'
   },
@@ -29,6 +29,7 @@ async function handleRoute() {
   if (url.length < 1) {
     url = '/';
     rootEl.innerHTML = await fetch(`/index.html`).then(r => r.text());
+    return;
   }
 
   const route = routes[url] || routes['/404'];

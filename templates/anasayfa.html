@@ -3,150 +3,99 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="icon" href="/assets/src/logo/twitter-color-svgrepo-com.svg" type="image/x-svg" />
+    <link rel="stylesheet" href="/assets/css/output.css">
     <script src="assets/js/main.js" defer></script>
+    <script src="https://kit.fontawesome.com/79839514b1.js" crossorigin="anonymous"></script>
     <title>wiwitter</title>
   </head>
-  <body>
-    <div class="h-screen bg-slate-900">
-      <div
-        class="max-w-7xl h-full justify-center flex flex-col md:flex-row items-center md:justify-between m-auto text-white"
-      >
-        <!-- right-side -->
-        <div class="mb-5">
-          <img
-            src="assets/src/logo/twitter-color-svgrepo-com.svg"
-            class="w-44 md:w-64 lg:w-72 xl:w-[500px]"
-            alt="twetter icon"
-          />
+<body class="bg-white font-sans font-semibold">
+    <div class="h-screen flex flex-row justify-center justify-items-center">
+      <div class="h-full flex flex-row">
+        <div
+          class="flex flex-col gap-14 h-full items-center border-white p-2 mt-7"
+        >
+          <a href="#/AnaSayfa"><i class="fa-solid fa-house text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="fa-solid fa-magnifying-glass text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="fa-solid fa-bell text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="fa-solid fa-envelope text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="fa-solid fa-newspaper text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="fa-solid fa-user text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="fa-solid fa-ellipsis text-blue-400 text-4xl"></i></a>
         </div>
-        <!-- left side -->
-        <div class="grid gap-6">
-          <h2 class="text-5xl max-w-sm md:text-7xl md:max-w-lg">Şu anda olup bitenler</h2>
-          <p class="text-xl md:text-3xl">Hemen katıl.</p>
-
-          <!-- Modal toggle -->
-          <a href="#/login">
-            <button
-              data-modal-target="authentication-modal"
-              data-modal-toggle="authentication-modal"
-              class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              type="button"
-            >
-              Hesap Aç ya da Giriş Yap
-            </button>
-          </a>
-          <span class="max-w-xs">
-            By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie
-            Use.
-          </span>
-
-          <!-- Main modal -->
-          <div
-            id="authentication-modal"
-            tabindex="-1"
-            aria-hidden="true"
-            class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
-          >
-            <div class="relative w-full max-w-md max-h-full">
-              <!-- Modal content -->
-              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <a href="#/">
-                  <button
-                    type="button"
-                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    data-modal-hide="authentication-modal"
-                  >
-                    <svg
-                      class="w-3 h-3"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 14"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                      />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                  </button>
-                </a>
-                <div class="px-6 py-6 lg:px-8">
-                  <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">
-                    Sign in to our platform
-                  </h3>
-                  <form class="space-y-6" action="#">
-                    <div>
-                      <label
-                        for="email"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Your email</label
-                      >
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="name@company.com"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        for="password"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Your password</label
-                      >
-                      <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        placeholder="••••••••"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        required
-                      />
-                    </div>
-                    <div class="flex justify-between">
-                      <div class="flex items-start">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="remember"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                            required
-                          />
-                        </div>
-                        <label
-                          for="remember"
-                          class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                          >Remember me</label
-                        >
+        <div class="flex flex-col border-r-4 border-l-4 border-slate-50">
+          <h2 class="mb-4 p-2 text-xl text-blue-300">Anasayfa</h2>
+          <!-- Post atma kısmı -->
+          <div class="lg:w-[650px]">
+            <div class="border-b-4 border-slate-50">
+              <div class="flex">
+                
+                <div class="container mx-auto p-4 mt-4">
+                  <!-- Tweet Form -->
+                  <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+                    <img src="/assets/src/logo/twitter-color-svgrepo-com.svg" alt="Profile Picture" class="w-12 h-12 rounded-full">
+                      <textarea class="w-full p-2 border rounded-lg min-h-[100px]" rows="4" maxlength="280" placeholder="What's happening?"></textarea>
+                      <div class="flex justify-between items-center mt-2">
+                          <button class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 active:bg-blue-800">Tweet</button>
                       </div>
-                      <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500"
-                        >Lost Password?</a
-                      >
-                    </div>
-                    <button
-                      type="submit"
-                      class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                      Login to your account
-                    </button>
-                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                      Not registered?
-                      <a href="#/signUp" class="text-blue-700 hover:underline dark:text-blue-500"
-                        >Create account</a
-                      >
-                    </div>
-                  </form>
+                  </div>
+                  <div class="flex gap-4">
+                    <i class="fa-solid fa-image text-blue-400 text-lg"></i>
+                    <i class="fa-solid fa-photo-film text-blue-400 text-lg"></i>
+                    <i class="fa-solid fa-face-smile text-blue-400 text-lg"></i>
+                    <i class="fa-solid fa-location-dot text-blue-400 text-lg"></i>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="mt-4 px-5">
+            <!-- Single Tweet -->
+            <div class="bg-white p-4 rounded-lg shadow-md mb-4 w-full">
+                <div class="flex items-center">
+                    <img src="/assets/src/Tayyip.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full">
+                    <div class="ml-4">
+                        <h2 class="font-semibold">Tayyip Balta</h2>
+                        <p class="text-gray-600">@TayyipBalta - 2h ago</p>
+                    </div>
+                </div>
+                <p class="mt-2">ilk yorum.</p>
+                <p class="text-gray-600">iphone'umdan gönderildi.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md mb-4 w-full">
+              <div class="flex items-center">
+                  <img src="/assets/src/duhan.png" alt="Profile Picture" class="w-12 h-12 rounded-full">
+                  <div class="ml-4">
+                      <h2 class="font-semibold">Duhan Özarslan</h2>
+                      <p class="text-gray-600">@DuhanÖzarslan - 2h ago</p>
+                  </div>
+              </div>
+              <p class="mt-2">ilk yorum.</p>
+              <p class="text-gray-600">iphone'umdan gönderildi.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md mb-4 w-full">
+              <div class="flex items-center">
+                  <img src="/assets/src/logo/twitter-color-svgrepo-com.svg" alt="Profile Picture" class="w-12 h-12 rounded-full">
+                  <div class="ml-4">
+                      <h2 class="font-semibold">Ahmet Dal</h2>
+                      <p class="text-gray-600">@AhmetDal - 2h ago</p>
+                  </div>
+              </div>
+              <p class="mt-2">ilk yorum.</p>
+              <p class="text-gray-600">iphone'umdan gönderildi.</p>
+            </div>
+
+            <!-- More tweets can be added here -->
+          </div>
+        </div>
+        <div class="hidden lg:block max-w-sm border-white p-6">
+          <div class="flex items-center justify-center bg-white p-2 rounded-full shadow-md">
+            <input
+              type="search"
+              placeholder="Ara"
+              class="bg-transparent placeholder:text-blue-400 text-black outline-none appearance-none"
+            />
+            <i class="fa-solid fa-magnifying-glass text-blue-400"></i>
           </div>
         </div>
       </div>
