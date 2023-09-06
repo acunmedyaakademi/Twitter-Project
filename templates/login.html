@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script>
+
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <script src="/assets/js/main.js" defer></script>
 
@@ -129,7 +131,9 @@
                   </button>
                   <div class="text-sm font-medium text-gray-500">
                     Not registered?
-                    <a href="#/signup" class="text-blue-700 hover:underline">Create account</a>
+                    <a href="#/signUp" id="createacc" class="text-blue-700 hover:underline"
+                      >Create account</a
+                    >
                   </div>
                 </form>
               </div>
@@ -138,6 +142,5 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </body>
 </html>
