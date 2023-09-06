@@ -77,6 +77,11 @@ function bindForm() {
   signUpForm.addEventListener('submit', e => {
     e.preventDefault();
 
-    console.log(Object.fromEntries(new FormData(signUpForm)));
+    const formData = new FormData(signUpForm);
+    const formObj = Object.fromEntries(formData);
+
+    const name = formObj.name;
+    const email = formObj.email;
+    const password = formObj.password;
   });
 }
