@@ -15,13 +15,13 @@
         <div
           class="flex flex-col gap-14 h-full items-center border-white p-2 mt-7"
         >
-          <a href="#/AnaSayfa"><i class="fa-solid fa-house text-blue-400 text-4xl"></i></a>
-          <a href="#/"><i class="fa-solid fa-magnifying-glass text-blue-400 text-4xl"></i></a>
-          <a href="#/"><i class="fa-solid fa-bell text-blue-400 text-4xl"></i></a>
-          <a href="#/"><i class="fa-solid fa-envelope text-blue-400 text-4xl"></i></a>
-          <a href="#/"><i class="fa-solid fa-newspaper text-blue-400 text-4xl"></i></a>
-          <a href="#/"><i class="fa-solid fa-user text-blue-400 text-4xl"></i></a>
-          <a href="#/"><i class="fa-solid fa-ellipsis text-blue-400 text-4xl"></i></a>
+          <a href="#/AnaSayfa"><i class="fa-solid fa-house text-blue-400 text-4xl hover:bg-blue-200 rounded-lg fa-solid p-3"></i></a>
+          <a href="#/"><i class="hover:bg-blue-200 transition-all rounded-lg fa-solid p-3 fa-magnifying-glass text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="hover:bg-blue-200 transition-all rounded-lg fa-solid p-3 fa-bell text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="hover:bg-blue-200 transition-all rounded-lg fa-solid p-3 fa-envelope text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="hover:bg-blue-200 transition-all rounded-lg fa-solid p-3 fa-newspaper text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="hover:bg-blue-200 transition-all rounded-lg fa-solid p-3 fa-user text-blue-400 text-4xl"></i></a>
+          <a href="#/"><i class="hover:bg-blue-200 transition-all rounded-lg fa-solid p-3 fa-ellipsis text-blue-400 text-4xl"></i></a>
         </div>
         <div class="flex flex-col border-r-4 border-l-4 border-slate-50">
           <h2 class="mb-4 p-2 text-xl text-blue-300">Anasayfa</h2>
@@ -30,59 +30,68 @@
             <div class="border-b-4 border-slate-50">
               <div class="flex">
                 
-                <div class="container mx-auto p-4 mt-4">
+                <div class="container mx-auto p-4 mt-4 shadow-md">
                   <!-- Tweet Form -->
-                  <div class="bg-white p-4 rounded-lg shadow-md mb-4">
-                    <img src="/assets/src/logo/twitter-color-svgrepo-com.svg" alt="Profile Picture" class="w-12 h-12 rounded-full">
-                      <textarea class="w-full p-2 border rounded-lg min-h-[100px]" rows="4" maxlength="280" placeholder="What's happening?"></textarea>
+                  <div class="bg-white p-4 rounded-lg shadow-lg mb-4">
+                    <img src="/assets/src/Tayyip.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full mb-2">
+                      <textarea class="w-full p-2 border rounded-lg min-h-[100px] max-h-[100px]" rows="4" maxlength="280" placeholder="Neler Oluyor?"></textarea>
                       <div class="flex justify-between items-center mt-2">
-                          <button class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 active:bg-blue-800">Tweet</button>
+                          <button class="bg-blue-400 text-white px-4 py-2 rounded-full hover:bg-blue-500 transition-all active:bg-blue-600">Tweet</button>
                       </div>
                   </div>
-                  <div class="flex gap-4">
-                    <i class="fa-solid fa-image text-blue-400 text-lg"></i>
-                    <i class="fa-solid fa-photo-film text-blue-400 text-lg"></i>
-                    <i class="fa-solid fa-face-smile text-blue-400 text-lg"></i>
-                    <i class="fa-solid fa-location-dot text-blue-400 text-lg"></i>
+                  <div class="flex gap-4 items-center">
+                    <a href="" class="hover:bg-blue-200 rounded-lg transition-all"><i class="fa-solid p-3 fa-image text-blue-400 text-lga"></i></a>
+                    <a href="" class="hover:bg-blue-200 rounded-lg transition-all"><i class="fa-solid p-3 fa-photo-film text-blue-400 text-lg"></i></a>
+                    <a href="" class="hover:bg-blue-200 rounded-lg transition-all"><i class="fa-solid p-3 fa-face-smile text-blue-400 text-lg"></i></a>
+                    <a href="" class="hover:bg-blue-200 rounded-lg transition-all"><i class="fa-solid p-3 fa-location-dot text-blue-400 text-lg"></i></a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="mt-4 px-5">
+          <div class="mt-4 px-5 shadow-md">
             <!-- Single Tweet -->
-            <div class="bg-white p-4 rounded-lg shadow-md mb-4 w-full">
+            <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
                 <div class="flex items-center">
                     <img src="/assets/src/Tayyip.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full">
                     <div class="ml-4">
-                        <h2 class="font-semibold">Tayyip Balta</h2>
+                        <div class="flex gap-1">
+                          <h2 class="font-semibold">Tayyip Balta</h2>
+                          <img class="w-5" src="/assets/src/logo/twitter-verified-badge-gold-seeklogo.com.svg" alt="">
+                        </div>
                         <p class="text-gray-600">@TayyipBalta - 2h ago</p>
                     </div>
                 </div>
                 <p class="mt-2">ilk yorum.</p>
-                <p class="text-gray-600">iphone'umdan gönderildi.</p>
+                <p class="text-gray-600">iPhone tarafından gönderildi.</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-md mb-4 w-full">
+            <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
               <div class="flex items-center">
                   <img src="/assets/src/duhan.png" alt="Profile Picture" class="w-12 h-12 rounded-full">
                   <div class="ml-4">
+                    <div class="flex gap-1">
                       <h2 class="font-semibold">Duhan Özarslan</h2>
+                      <img class="w-5" src="/assets/src/logo/twitter-verified-badge-gold-seeklogo.com.svg" alt="">
+                    </div>
                       <p class="text-gray-600">@DuhanÖzarslan - 2h ago</p>
                   </div>
               </div>
               <p class="mt-2">ilk yorum.</p>
-              <p class="text-gray-600">iphone'umdan gönderildi.</p>
+              <p class="text-gray-600">iPhone tarafından gönderildi.</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-md mb-4 w-full">
+            <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
               <div class="flex items-center">
                   <img src="/assets/src/logo/twitter-color-svgrepo-com.svg" alt="Profile Picture" class="w-12 h-12 rounded-full">
                   <div class="ml-4">
-                      <h2 class="font-semibold">Ahmet Dal</h2>
+                      <div class="flex gap-1">
+                        <h2 class="font-semibold">Ahmet Dal</h2>
+                        <img class="w-5" src="/assets/src/logo/twitter-verified-badge-gold-seeklogo.com.svg" alt="">
+                      </div>
                       <p class="text-gray-600">@AhmetDal - 2h ago</p>
                   </div>
               </div>
               <p class="mt-2">ilk yorum.</p>
-              <p class="text-gray-600">iphone'umdan gönderildi.</p>
+              <p class="text-gray-600">iPhone tarafından gönderildi.</p>
             </div>
 
             <!-- More tweets can be added here -->
@@ -97,6 +106,48 @@
             />
             <i class="fa-solid fa-magnifying-glass text-blue-400"></i>
           </div>
+          <!-- premium ad -->
+          <div class="bg-white rounded-xl mt-4 p-4 mb-12 shadow-md">
+            <h3 class="text-blue-400 text-2xl mb-2">Premium'a Abone Ol</h3>
+            <p class="text-black mb-4">
+              Yeni özellikleri açmak için abone ol ve uygun olman durumunda reklam geliri payı
+              kazan.
+            </p>
+            <button class="bg-blue-400 p-2 rounded-full px-5 font-bold text-white outline-none hover:bg-blue-500 active:bg-blue-600 transition-all">
+              Abone ol
+            </button>
+          </div>
+
+          <!-- gündem -->
+          <div class="bg-white p-4 rounded-xl flex flex-col gap-4 shadow-md">
+            <h3 class="text-black text-xl">Türkiye Gündemi</h3>
+            <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
+              <h3>1 - Gündemdekiler</h3>
+              <span class="text-black">#Elon Musk</span>
+            </div>
+            <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
+              <h3>2 - Siyaset - Gündemdekiler</h3>
+              <span class="text-black">#LibertySafe</span>
+            </div>
+            <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
+              <h3>3 - Gündemdekiler</h3>
+              <span class="text-black">#NFC Champ</span>
+              <p class="text-xs">
+                Gündem konusu <span class="text-blue-400 text-xs">Super Bowl Champ,Bengals</span>
+              </p>
+            </div>
+            <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
+              <h3>4 - Pop müzik - Gündemdekiler</h3>
+              <span class="text-black">Zach Bryan</span>
+            </div>
+            <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
+              <h3>5 - Siyaset - Gündemdekiler</h3>
+              <span class="text-black">E. Jean Carroll</span>
+            </div>
+            <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
+              <h3>6 - Basketbol - Gündemdekiler</h3>
+              <span class="text-black">Luka</span>
+            </div>
         </div>
       </div>
     </div>
