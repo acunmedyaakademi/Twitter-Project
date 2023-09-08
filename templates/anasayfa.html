@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/assets/src/logo/twitter-color-svgrepo-com.svg" type="image/x-svg" />
-    <link rel="stylesheet" href="/assets/css/output.css">
-    <script src="assets/js/main.js" defer></script>
-    <script src="https://kit.fontawesome.com/79839514b1.js" crossorigin="anonymous"></script>
-    <title>wiwitter</title>
-  </head>
-<body class="bg-white font-sans font-semibold">
-    <div class="h-screen flex flex-row justify-center justify-items-center">
+<body class="font-sans font-semibold">
+    <div class="bg-white h-screen flex flex-row justify-center justify-items-center">
       <div class="h-full flex flex-row">
         <div
           class="flex flex-col gap-14 h-full items-center border-white p-2 mt-7"
         >
-          <a href="#/AnaSayfa"><i class="fa-solid fa-house text-blue-400 text-4xl hover:bg-blue-200 rounded-lg fa-solid p-3"></i></a>
+          <a href="#/anaSayfa"><i class="fa-solid fa-house text-blue-400 text-4xl hover:bg-blue-200 rounded-lg fa-solid p-3"></i></a>
           <a href="#/"><i class="hover:bg-blue-200 transition-all rounded-lg fa-solid p-3 fa-magnifying-glass text-blue-400 text-4xl"></i></a>
           <a href="#/"><i class="hover:bg-blue-200 transition-all rounded-lg fa-solid p-3 fa-bell text-blue-400 text-4xl"></i></a>
           <a href="#/"><i class="hover:bg-blue-200 transition-all rounded-lg fa-solid p-3 fa-envelope text-blue-400 text-4xl"></i></a>
@@ -28,13 +17,13 @@
           <!-- Post atma kısmı -->
           <div class="lg:w-[650px]">
             <div class="border-b-4 border-slate-50">
-              <div class="flex">
+              <div class="flex mb-6">
                 
-                <div class="container mx-auto p-4 mt-4 shadow-md">
+                <div class="container mx-auto p-4 mt-4 shadow-lg rounded-lg">
                   <!-- Tweet Form -->
                   <div class="bg-white p-4 rounded-lg shadow-lg mb-4">
                     <img src="/assets/src/Tayyip.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full mb-2">
-                      <textarea class="w-full p-2 border rounded-lg min-h-[100px] max-h-[100px]" rows="4" maxlength="280" placeholder="Neler Oluyor?"></textarea>
+                      <textarea class="text-blue w-full p-2 border rounded-lg min-h-[100px] max-h-[100px]" rows="4" maxlength="280" placeholder="Neler Oluyor?"></textarea>
                       <div class="flex justify-between items-center mt-2">
                           <button class="bg-blue-400 text-white px-4 py-2 rounded-full hover:bg-blue-500 transition-all active:bg-blue-600">Tweet</button>
                       </div>
@@ -49,7 +38,7 @@
               </div>
             </div>
           </div>
-          <div class="mt-4 px-5 shadow-md">
+          <div class="mt-4 px-5 shadow-lg rounded-lg">
             <!-- Single Tweet -->
             <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
                 <div class="flex items-center">
@@ -107,7 +96,7 @@
             <i class="fa-solid fa-magnifying-glass text-blue-400"></i>
           </div>
           <!-- premium ad -->
-          <div class="bg-white rounded-xl mt-4 p-4 mb-12 shadow-md">
+          <div class="bg-white rounded-xl mt-4 p-4 mb-12 shadow-lg hover:shadow-blue-400 transition-all">
             <h3 class="text-blue-400 text-2xl mb-2">Premium'a Abone Ol</h3>
             <p class="text-black mb-4">
               Yeni özellikleri açmak için abone ol ve uygun olman durumunda reklam geliri payı
@@ -119,34 +108,34 @@
           </div>
 
           <!-- gündem -->
-          <div class="bg-white p-4 rounded-xl flex flex-col gap-4 shadow-md">
-            <h3 class="text-black text-xl">Türkiye Gündemi</h3>
+          <div class="bg-white p-4 rounded-xl flex flex-col gap-4 shadow-inner">
+            <h3 class="text-blue-400 text-xl">Türkiye Gündemi</h3>
             <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
               <h3>1 - Gündemdekiler</h3>
-              <span class="text-black">#Elon Musk</span>
+              <span class="text-blue-400">#Elon Musk</span>
             </div>
             <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
               <h3>2 - Siyaset - Gündemdekiler</h3>
-              <span class="text-black">#LibertySafe</span>
+              <span class="text-blue-400">#LibertySafe</span>
             </div>
             <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
               <h3>3 - Gündemdekiler</h3>
-              <span class="text-black">#NFC Champ</span>
+              <span class="text-blue-400">#NFC Champ</span>
               <p class="text-xs">
                 Gündem konusu <span class="text-blue-400 text-xs">Super Bowl Champ,Bengals</span>
               </p>
             </div>
             <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
               <h3>4 - Pop müzik - Gündemdekiler</h3>
-              <span class="text-black">Zach Bryan</span>
+              <span class="text-blue-400">Zach Bryan</span>
             </div>
             <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
               <h3>5 - Siyaset - Gündemdekiler</h3>
-              <span class="text-black">E. Jean Carroll</span>
+              <span class="text-blue-400">E. Jean Carroll</span>
             </div>
             <div class="hover:shadow-md rounded-xl p-4 cursor-pointer transition-all">
               <h3>6 - Basketbol - Gündemdekiler</h3>
-              <span class="text-black">Luka</span>
+              <span class="text-blue-400">Luka</span>
             </div>
         </div>
       </div>
