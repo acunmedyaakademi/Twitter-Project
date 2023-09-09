@@ -1,44 +1,44 @@
-const SUPABASE_URL = 'https://jnkuibkstwdesvxglaci.supabase.co';
+const SUPABASE_URL = "https://jnkuibkstwdesvxglaci.supabase.co";
 
 const SUPABASE_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impua3VpYmtzdHdkZXN2eGdsYWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQyNjUzMjIsImV4cCI6MjAwOTg0MTMyMn0.IRtc7OjR4uBgpmKkvET0cdGjQsZy2tM3KxrWoMkkFWU';
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impua3VpYmtzdHdkZXN2eGdsYWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQyNjUzMjIsImV4cCI6MjAwOTg0MTMyMn0.IRtc7OjR4uBgpmKkvET0cdGjQsZy2tM3KxrWoMkkFWU";
 
 var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-addEventListener('hashchange', handleRoute);
+addEventListener("hashchange", handleRoute);
 
 const routes = {
-  '/': {
-    title: 'AnaSayfa',
-    templates: 'anasayfa',
+  "/": {
+    title: "AnaSayfa",
+    templates: "anasayfa",
     callback: sendForm,
   },
-  '/signUp': {
-    title: 'Üye Ol',
-    templates: 'signUp',
+  "/signUp": {
+    title: "Üye Ol",
+    templates: "signUp",
     callback: bindForm,
   },
-  '/login': {
-    title: 'Giriş Yap',
-    templates: 'login',
+  "/login": {
+    title: "Giriş Yap",
+    templates: "login",
     callback: openModal,
   },
-  '/404': {
-    title: 'Sayfa Bulunamadı',
-    templates: '404',
+  "/404": {
+    title: "Sayfa Bulunamadı",
+    templates: "404",
   },
 };
 
-const routeTitle = 'wiwitter | ';
-const rootEl = document.querySelector('.root');
+const routeTitle = "wiwitter | ";
+const rootEl = document.querySelector(".root");
 
 async function handleRoute() {
   let url = location.hash.substring(1);
 
   if (url.length < 1) {
-    url = '/login';
+    url = "/login";
   }
-  let route = routes[url] || routes['/404'];
+  let route = routes[url] || routes["/404"];
 
   const response = await fetch(`/templates/${route.templates}.html`);
   const responseHtml = await response.text();
@@ -56,52 +56,37 @@ handleRoute();
 
 function openModal() {
   // login sayfası butona tıklandığında
-  const openModalBtn = document.querySelector('#openModalBtn');
-  const submitModal = document.querySelector('#submitModal');
-  const submitHideBtn = document.querySelector('#submitHideBtn');
-  const twetterImg = document.querySelector('#twetter-img');
+  const openModalBtn = document.querySelector("#openModalBtn");
+  const submitModal = document.querySelector("#submitModal");
+  const submitHideBtn = document.querySelector("#submitHideBtn");
+  const twetterImg = document.querySelector("#twetter-img");
 
-  openModalBtn.addEventListener('click', () => {
-    submitModal.classList.remove('hidden');
-    twetterImg.classList.add('hidden');
+  openModalBtn.addEventListener("click", () => {
+    submitModal.classList.remove("hidden");
+    twetterImg.classList.add("hidden");
   });
 
-  submitHideBtn.addEventListener('click', () => {
-    submitModal.classList.add('hidden');
-    twetterImg.classList.remove('hidden');
+  submitHideBtn.addEventListener("click", () => {
+    submitModal.classList.add("hidden");
+    twetterImg.classList.remove("hidden");
   });
-  document.querySelector('#loginBtn').addEventListener('click', loginSubmitted);
+  document.querySelector("#loginBtn").addEventListener("click", loginSubmitted);
 }
 
 function sendForm() {
-  const form = document.querySelector('#sendPost');
-  form.addEventListener('submit', sendPost);
+  const form = document.querySelector("#sendPost");
+  form.addEventListener("submit", sendPost);
 }
 
 async function sendPost(e) {
   e.preventDefault();
 
-  const postValue = document.querySelector('#postArea').value;
-  // console.log(postValue);
-  const { data: fetchedUsers, err } = await supabase.from('users');
-  console.log(fetchedUsers);
+  const postValue = document.querySelector("#postArea").value;
 
-  const { data: fetchPost, error } = await supabase.from('posts');
+  const { data: fetchPost, error } = await supabase.from("posts");
   console.log(fetchPost);
-
-  /*      try {
-    const { data, error } = await supabase.from('user_profile').insert([
-      {
-        username: username,
-      },
-    ]);
-  } catch (error) {
-    console.warn(error);
-  }  */
-
   try {
-    // const id = fetchedUsers.id;
-    const { data, error } = await supabase.from('posts').insert([
+    const { data, error } = await supabase.from("posts").insert([
       {
         content: postValue,
       },
@@ -111,27 +96,27 @@ async function sendPost(e) {
 }
 
 async function getPost() {
-  const tweetContainer = document.querySelector('.tweet-container');
-  const { data: fetchPosts, err } = await supabase.from('posts');
+  const tweetContainer = document.querySelector(".tweet-container");
+  const { data: fetchPosts, err } = await supabase.from("posts");
 
   for (const post of fetchPosts) {
+    console.log(post);
     tweetContainer.innerHTML += `
       <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
                   <div class="flex items-center">
                       <img src="/assets/src/Tayyip.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full">
                       <div class="ml-4">
                           <div class="flex gap-1">
-                            <h2 class="font-semibold">Tayyip Balta</h2>
+                           
                             <img class="w-5" src="/assets/src/logo/twitter-verified-badge-gold-seeklogo.com.svg" alt="">
                           </div>
-                          <p class="text-gray-600">@TayyipBalta - 2h ago</p>
+                          
                       </div>
                   </div>
                   <p class="mt-2">${post.content}</p>
                   <p class="text-gray-600">iPhone tarafından gönderildi.</p>
               </div>`;
   }
-
   console.log(fetchPosts);
 }
 
@@ -139,9 +124,9 @@ async function getPost() {
 
 async function loginSubmitted(event) {
   event.preventDefault();
-  const email = document.querySelector('#email').value;
-  const password = document.querySelector('#password').value;
-  const username = document.querySelector('#username').value;
+  const email = document.querySelector("#email").value;
+  const password = document.querySelector("#password").value;
+  const username = document.querySelector("#username").value;
   try {
     const { user, error } = await supabase.auth.signIn({
       email: email,
@@ -150,9 +135,9 @@ async function loginSubmitted(event) {
     });
 
     if (error) {
-      console.error('Log-in error:', error.message);
+      console.error("Log-in error:", error.message);
     } else {
-      console.log('User:', user);
+      console.log("User:", user);
       alert(`Logged in as ${user.email}`);
       //fetch homepage to redirect after log in
       const response = await fetch(`/templates/anasayfa.html`);
@@ -162,26 +147,28 @@ async function loginSubmitted(event) {
       getPost();
     }
   } catch (error) {
-    console.error('An unexpected error occurred:', error);
+    console.error("An unexpected error occurred:", error);
   }
 }
 
 function bindForm() {
-  const signUpForm = document.querySelector('#signUpForm');
+  const signUpForm = document.querySelector("#signUpForm");
 
-  signUpForm.addEventListener('submit', e => {
+  signUpForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    document.querySelector('#signUpFormSubmitBtn').addEventListener('click', signUpSubmitted);
+    document
+      .querySelector("#signUpFormSubmitBtn")
+      .addEventListener("click", signUpSubmitted);
   });
 }
 //SİGNuP Auth
 async function signUpSubmitted(event) {
   event.preventDefault();
-  const email = document.querySelector('#email').value;
-  const password = document.querySelector('#password').value;
-  const username = document.querySelector('#sigUp-name').value;
-  const confirmPassword = document.querySelector('#confirm-password').value;
+  const email = document.querySelector("#email").value;
+  const password = document.querySelector("#password").value;
+  const username = document.querySelector("#sigUp-name").value;
+  const confirmPassword = document.querySelector("#confirm-password").value;
 
   try {
     const { user, error } = await supabase.auth.signUp({
@@ -190,7 +177,7 @@ async function signUpSubmitted(event) {
     });
 
     if (password !== confirmPassword) {
-      alert('passwords didnt matched');
+      alert("passwords didnt matched");
       return;
     }
     if (error) {
@@ -199,11 +186,11 @@ async function signUpSubmitted(event) {
       const response = await fetch(`/templates/login.html`);
       const responseHtml = await response.text();
       rootEl.innerHTML = responseHtml;
-      location.hash = '#/login';
+      location.hash = "#/login";
 
       //post datas to user table
 
-      const { data, error } = await supabase.from('users').insert([
+      const { data, error } = await supabase.from("users").insert([
         {
           id: user.id,
           username: username,
@@ -215,6 +202,6 @@ async function signUpSubmitted(event) {
       //redesign signup form to get all datas
     }
   } catch (error) {
-    console.error('An unexpected error occurred:', error);
+    console.error("An unexpected error occurred:", error);
   }
 }
