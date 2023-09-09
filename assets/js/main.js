@@ -70,7 +70,7 @@ function openModal() {
     submitModal.classList.add('hidden');
     twetterImg.classList.remove('hidden');
   });
-  document.querySelector('#loginBtn').addEventListener('click', getAuthUsers);
+  document.querySelector('#loginBtn').addEventListener('click', loginSubmitted);
 }
 
 function sendForm() {
