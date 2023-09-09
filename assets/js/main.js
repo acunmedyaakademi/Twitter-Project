@@ -111,7 +111,7 @@ async function sendPost(e) {
 
 //LOGİN aUTH
 
-async function getAuthUsers(event) {
+async function loginSubmitted(event) {
   event.preventDefault();
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
@@ -161,8 +161,8 @@ async function signUpSubmitted(event) {
     const { user, error } = await supabase.auth.signUp({
       email: email,
       password: password,
-      username: username,
     });
+
     if (password !== confirmPassword) {
       alert('passwords didnt matched');
       return;
@@ -170,9 +170,23 @@ async function signUpSubmitted(event) {
     if (error) {
       alert(`Sign-up error:${error.message} `);
     } else {
-      console.log('User:', user);
+      const response = await fetch(`/templates/login.html`);
+      const responseHtml = await response.text();
+      rootEl.innerHTML = responseHtml;
+      location.hash = '#/login';
 
-      window.location.hash = '/login';
+      //post datas to user table
+
+      const { data, error } = await supabase.from('users').insert([
+        {
+          id: user.id,
+          username: username,
+          email: email,
+          password: password,
+          // Add other custom :pasfields as needed
+        },
+      ]);
+      //redesign signup form to get all datas
     }
   } catch (error) {
     console.error('An unexpected error occurred:', error);
