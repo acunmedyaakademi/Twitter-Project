@@ -70,7 +70,7 @@ function openModal() {
     submitModal.classList.add('hidden');
     twetterImg.classList.remove('hidden');
   });
-  document.querySelector('#loginBtn').addEventListener('click', getAuthUsers);
+  document.querySelector('#loginBtn').addEventListener('click', loginSubmitted);
 }
 
 function sendForm() {
@@ -107,11 +107,37 @@ async function sendPost(e) {
       },
     ]);
   } catch (error) {}
+  getPost();
+}
+
+async function getPost() {
+  const tweetContainer = document.querySelector('.tweet-container');
+  const { data: fetchPosts, err } = await supabase.from('posts');
+
+  for (const post of fetchPosts) {
+    tweetContainer.innerHTML += `
+      <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
+                  <div class="flex items-center">
+                      <img src="/assets/src/Tayyip.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full">
+                      <div class="ml-4">
+                          <div class="flex gap-1">
+                            <h2 class="font-semibold">Tayyip Balta</h2>
+                            <img class="w-5" src="/assets/src/logo/twitter-verified-badge-gold-seeklogo.com.svg" alt="">
+                          </div>
+                          <p class="text-gray-600">@TayyipBalta - 2h ago</p>
+                      </div>
+                  </div>
+                  <p class="mt-2">${post.content}</p>
+                  <p class="text-gray-600">iPhone tarafından gönderildi.</p>
+              </div>`;
+  }
+
+  console.log(fetchPosts);
 }
 
 //LOGİN aUTH
 
-async function getAuthUsers(event) {
+async function loginSubmitted(event) {
   event.preventDefault();
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
@@ -132,8 +158,8 @@ async function getAuthUsers(event) {
       const response = await fetch(`/templates/anasayfa.html`);
       const responseHtml = await response.text();
       rootEl.innerHTML = responseHtml;
-
       sendForm();
+      getPost();
     }
   } catch (error) {
     console.error('An unexpected error occurred:', error);
@@ -161,8 +187,8 @@ async function signUpSubmitted(event) {
     const { user, error } = await supabase.auth.signUp({
       email: email,
       password: password,
-      username: username,
     });
+
     if (password !== confirmPassword) {
       alert('passwords didnt matched');
       return;
@@ -170,9 +196,23 @@ async function signUpSubmitted(event) {
     if (error) {
       alert(`Sign-up error:${error.message} `);
     } else {
-      console.log('User:', user);
+      const response = await fetch(`/templates/login.html`);
+      const responseHtml = await response.text();
+      rootEl.innerHTML = responseHtml;
+      location.hash = '#/login';
 
-      window.location.hash = '/login';
+      //post datas to user table
+
+      const { data, error } = await supabase.from('users').insert([
+        {
+          id: user.id,
+          username: username,
+          email: email,
+          password: password,
+          // Add other custom :pasfields as needed
+        },
+      ]);
+      //redesign signup form to get all datas
     }
   } catch (error) {
     console.error('An unexpected error occurred:', error);

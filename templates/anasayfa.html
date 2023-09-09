@@ -34,7 +34,10 @@
                   <!-- Tweet Form -->
                   <div class="bg-white p-4 rounded-lg shadow-lg mb-4">
                     <img src="/assets/src/Tayyip.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full mb-2">
-                      <textarea class="text-blue w-full p-2 border rounded-lg min-h-[100px] max-h-[100px]" rows="4" maxlength="280" placeholder="Neler Oluyor?"></textarea>
+                    <form id="sendPost">
+                      <textarea id="postArea" class="text-blue w-full p-2 border rounded-lg min-h-[100px] max-h-[100px]" rows="4" maxlength="280" placeholder="Neler Oluyor?"></textarea>
+                      <button type="submit">Gönder</button>
+                    </form>
                       <div class="flex justify-between items-center mt-2">
                           <button class="bg-blue-400 text-white px-4 py-2 rounded-full hover:bg-blue-500 transition-all active:bg-blue-600">Tweet</button>
                       </div>
@@ -51,7 +54,8 @@
           </div>
           <div class="mt-4 px-5 shadow-lg rounded-lg">
             <!-- Single Tweet -->
-            <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
+            <div class="tweet-container">
+              <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
                 <div class="flex items-center">
                     <img src="/assets/src/Tayyip.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full">
                     <div class="ml-4">
@@ -65,34 +69,10 @@
                 <p class="mt-2">ilk yorum.</p>
                 <p class="text-gray-600">iPhone tarafından gönderildi.</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
-              <div class="flex items-center">
-                  <img src="/assets/src/duhan.png" alt="Profile Picture" class="w-12 h-12 rounded-full">
-                  <div class="ml-4">
-                    <div class="flex gap-1">
-                      <h2 class="font-semibold">Duhan Özarslan</h2>
-                      <img class="w-5" src="/assets/src/logo/twitter-verified-badge-gold-seeklogo.com.svg" alt="">
-                    </div>
-                      <p class="text-gray-600">@DuhanÖzarslan - 2h ago</p>
-                  </div>
-              </div>
-              <p class="mt-2">ilk yorum.</p>
-              <p class="text-gray-600">iPhone tarafından gönderildi.</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
-              <div class="flex items-center">
-                  <img src="/assets/src/logo/twitter-color-svgrepo-com.svg" alt="Profile Picture" class="w-12 h-12 rounded-full">
-                  <div class="ml-4">
-                      <div class="flex gap-1">
-                        <h2 class="font-semibold">Ahmet Dal</h2>
-                        <img class="w-5" src="/assets/src/logo/twitter-verified-badge-gold-seeklogo.com.svg" alt="">
-                      </div>
-                      <p class="text-gray-600">@AhmetDal - 2h ago</p>
-                  </div>
-              </div>
-              <p class="mt-2">ilk yorum.</p>
-              <p class="text-gray-600">iPhone tarafından gönderildi.</p>
-            </div>
+            
+            
+         
 
             <!-- More tweets can be added here -->
           </div>
