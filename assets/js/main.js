@@ -1,7 +1,7 @@
-const SUPABASE_URL = 'https://hjsfvuyyshsmgqsqtrtk.supabase.co';
+const SUPABASE_URL = 'https://jnkuibkstwdesvxglaci.supabase.co';
 
 const SUPABASE_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhqc2Z2dXl5c2hzbWdxc3F0cnRrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY5MzQwMjU2OSwiZXhwIjoyMDA4OTc4NTY5fQ.5AKIE8LoFJEtSKY8WEw-4KXFFDrgYcRvk9NgF1Em3DQ';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impua3VpYmtzdHdkZXN2eGdsYWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQyNjUzMjIsImV4cCI6MjAwOTg0MTMyMn0.IRtc7OjR4uBgpmKkvET0cdGjQsZy2tM3KxrWoMkkFWU';
 
 var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -11,6 +11,7 @@ const routes = {
   '/': {
     title: 'AnaSayfa',
     templates: 'anasayfa',
+    callback: sendForm,
   },
   '/signUp': {
     title: 'Üye Ol',
@@ -72,6 +73,42 @@ function openModal() {
   document.querySelector('#loginBtn').addEventListener('click', getAuthUsers);
 }
 
+function sendForm() {
+  const form = document.querySelector('#sendPost');
+  form.addEventListener('submit', sendPost);
+}
+
+async function sendPost(e) {
+  e.preventDefault();
+
+  const postValue = document.querySelector('#postArea').value;
+  // console.log(postValue);
+  const { data: fetchedUsers, err } = await supabase.from('users');
+  console.log(fetchedUsers);
+
+  const { data: fetchPost, error } = await supabase.from('posts');
+  console.log(fetchPost);
+
+  /*      try {
+    const { data, error } = await supabase.from('user_profile').insert([
+      {
+        username: username,
+      },
+    ]);
+  } catch (error) {
+    console.warn(error);
+  }  */
+
+  try {
+    // const id = fetchedUsers.id;
+    const { data, error } = await supabase.from('posts').insert([
+      {
+        content: postValue,
+      },
+    ]);
+  } catch (error) {}
+}
+
 //LOGİN aUTH
 
 async function getAuthUsers(event) {
@@ -95,6 +132,8 @@ async function getAuthUsers(event) {
       const response = await fetch(`/templates/anasayfa.html`);
       const responseHtml = await response.text();
       rootEl.innerHTML = responseHtml;
+
+      sendForm();
     }
   } catch (error) {
     console.error('An unexpected error occurred:', error);
@@ -132,10 +171,6 @@ async function signUpSubmitted(event) {
       alert(`Sign-up error:${error.message} `);
     } else {
       console.log('User:', user);
-      /* const response = await fetch(`/templates/login.html`);
-      const responseHtml = await response.text();
-      rootEl.innerHTML = responseHtml;
-      location.hash = '#/login'; */
 
       window.location.hash = '/login';
     }
