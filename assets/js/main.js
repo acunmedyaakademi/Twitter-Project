@@ -1,7 +1,7 @@
-const SUPABASE_URL = "https://hjsfvuyyshsmgqsqtrtk.supabase.co";
+const SUPABASE_URL = "https://jnkuibkstwdesvxglaci.supabase.co";
 
 const SUPABASE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhqc2Z2dXl5c2hzbWdxc3F0cnRrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY5MzQwMjU2OSwiZXhwIjoyMDA4OTc4NTY5fQ.5AKIE8LoFJEtSKY8WEw-4KXFFDrgYcRvk9NgF1Em3DQ";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impua3VpYmtzdHdkZXN2eGdsYWNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQyNjUzMjIsImV4cCI6MjAwOTg0MTMyMn0.IRtc7OjR4uBgpmKkvET0cdGjQsZy2tM3KxrWoMkkFWU";
 
 var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -69,12 +69,12 @@ function openModal() {
     submitModal.classList.add("hidden");
     twetterImg.classList.remove("hidden");
   });
-  document.querySelector("#loginBtn").addEventListener("click", getAuthUsers);
+  document.querySelector("#loginBtn").addEventListener("click", loginSubmitted);
 }
 
 //LOGİN aUTH
 
-async function getAuthUsers(event) {
+async function loginSubmitted(event) {
   event.preventDefault();
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#password").value;
@@ -106,7 +106,6 @@ function bindForm() {
 
   signUpForm.addEventListener("submit", (e) => {
     e.preventDefault();
-
     document
       .querySelector("#signUpFormSubmitBtn")
       .addEventListener("click", signUpSubmitted);
@@ -124,8 +123,8 @@ async function signUpSubmitted(event) {
     const { user, error } = await supabase.auth.signUp({
       email: email,
       password: password,
-      username: username,
     });
+
     if (password !== confirmPassword) {
       alert("passwords didnt matched");
       return;
@@ -133,7 +132,23 @@ async function signUpSubmitted(event) {
     if (error) {
       alert(`Sign-up error:${error.message} `);
     } else {
-      console.log("User:", user);
+      const response = await fetch(`/templates/login.html`);
+      const responseHtml = await response.text();
+      rootEl.innerHTML = responseHtml;
+      location.hash = "#/login";
+
+      //post datas to user table
+
+      const { data, error } = await supabase.from("users").insert([
+        {
+          id: user.id,
+          username: username,
+          email: email,
+          password: password,
+          // Add other custom :pasfields as needed
+        },
+      ]);
+      //redesign signup form to get all datas
     }
   } catch (error) {
     console.error("An unexpected error occurred:", error);
