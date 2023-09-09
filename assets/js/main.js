@@ -107,6 +107,32 @@ async function sendPost(e) {
       },
     ]);
   } catch (error) {}
+  getPost();
+}
+
+async function getPost() {
+  const tweetContainer = document.querySelector('.tweet-container');
+  const { data: fetchPosts, err } = await supabase.from('posts');
+
+  for (const post of fetchPosts) {
+    tweetContainer.innerHTML += `
+      <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-full">
+                  <div class="flex items-center">
+                      <img src="/assets/src/Tayyip.jpg" alt="Profile Picture" class="w-12 h-12 rounded-full">
+                      <div class="ml-4">
+                          <div class="flex gap-1">
+                            <h2 class="font-semibold">Tayyip Balta</h2>
+                            <img class="w-5" src="/assets/src/logo/twitter-verified-badge-gold-seeklogo.com.svg" alt="">
+                          </div>
+                          <p class="text-gray-600">@TayyipBalta - 2h ago</p>
+                      </div>
+                  </div>
+                  <p class="mt-2">${post.content}</p>
+                  <p class="text-gray-600">iPhone tarafından gönderildi.</p>
+              </div>`;
+  }
+
+  console.log(fetchPosts);
 }
 
 //LOGİN aUTH
@@ -132,8 +158,8 @@ async function loginSubmitted(event) {
       const response = await fetch(`/templates/anasayfa.html`);
       const responseHtml = await response.text();
       rootEl.innerHTML = responseHtml;
-
       sendForm();
+      getPost();
     }
   } catch (error) {
     console.error('An unexpected error occurred:', error);
